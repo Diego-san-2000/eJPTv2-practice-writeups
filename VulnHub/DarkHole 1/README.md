@@ -14,7 +14,7 @@ En este caso será 192.168.226.128
 Luego, es necesario encontrar la máquina a vulnerar. Esto se puede hacer con arp-scan o nmap. En este caso se le pedirá a nmap que escanee todas las IPs en nuestro rango.
 
 ```bash
-nmap 192.168.226.0.255
+nmap 192.168.226.0.0-255
 ```
 
 ![Consola](img/2.png)
@@ -38,12 +38,7 @@ Al ingresar con el usuario creado, podremos ver que se puede cambiar el nombre d
 
 ![Panel de control del usuario](img/5.png)
 
-Podría ser interesante interceptar las peticiones con BurpSuite.
-
-Al interceptar el cambio de nombre de usuario y de email no hay nada interesante.
-
-
-Sin embargo, la petición de cambio de contraseña es:
+Podría ser interesante interceptar las peticiones con BurpSuite. Al interceptar el cambio de nombre de usuario y de email no hay nada interesante. Sin embargo, la petición de cambio de contraseña es:
 
 ![BurpSuite](img/6.png)
 Se puede ver que cambia la contraseña con password=1, pero añade un &id=2. Al modificar el id a 1 podríamos cambiar la contraseña de otro usuario.
@@ -80,7 +75,7 @@ Antes de nada, desactivamos le cortafuegos del dispositivo y el proxy del navega
 
 ![Desactivar cortafuegos del dispositivo](img/12.png)
 
-Primero ponemos una consola en escucha.
+Después, ponemos una consola en escucha.
 
 ```bash
 sudo nc -nlvp 443
@@ -113,6 +108,7 @@ reset xterm
 ```
 
 Y al comprobar si estamos operando una tty nos devolverá que sí:
+
 ![Consola](img/15.png)
 
 
