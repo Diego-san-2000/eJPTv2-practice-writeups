@@ -133,7 +133,7 @@ En el caso de que esté ejecutando id sin su ruta absoluta, se puede realizar un
 1. echo "bash -p" > /tmp/id
 2. export PATH=/tmp:$PATH
 
-Con esto, hacemo que si alguien ejecuta el comando "id", el sistema busque qué debe hacer primero en /tmp y, al encontrar "id", ejecute "bash -p"
+Con esto, hacemos que si alguien ejecuta el comando "id", el sistema busque qué debe hacer primero en /tmp y, al encontrar nuestro archivo "id" antes que los demás, ejecute "bash -p"
 
 Ahora, al ejecutar ./toto, dejaremos de ser el usuario www-data y seremos el usuario john:
 
