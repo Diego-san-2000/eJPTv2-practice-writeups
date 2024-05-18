@@ -1,4 +1,4 @@
-# VulnHob - DarkHole: 1 Writeup
+# VulnHub - DarkHole: 1 Writeup
 
 ## Primer paso: Excaneo de puertos
 Anotamos nuestra IP
