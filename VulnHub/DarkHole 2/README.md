@@ -127,7 +127,7 @@ ssh jehad@192.168.226.130 -L 9999:localhost:9999
 ```
 Ahora, accediendo a http://127.0.0.1:9999/ veremos que acepta el parámetro cmd para ejecutar comandos.
 
-![Página web](12.png)
+![Página web](img/12.png)
 
 El usuario que corre el servicio es losy, podría ser interesante acceder a este. Para ello creamos una web shell.
 
@@ -141,12 +141,12 @@ Y entramos en la página [https://www.revshells.com/](RevShells) para generar la
 
 En este caso, funcionó la siguiente configuración:
 
-![Reverse shell](13.png)
+![Reverse shell](img/13.png)
 
 En la carpeta /home/losy encontramos la primera flag:
 
 
-![Reverse shell](14.png)
+![Reverse shell](img/14.png)
 
 De nuevo, viendo el histórico de comandos, encontramos una contraseña:
 
@@ -154,14 +154,14 @@ De nuevo, viendo el histórico de comandos, encontramos una contraseña:
 cat .bash_history | less
 ```
 
-![Password](15.png)
+![Password](img/15.png)
 
 Ahora que tenemos la contraseña de losy, vamos a consultar qué podemos ejecutar como root:
 
 ```bash
 sudo -l
 ```
-![Consola](16.png)
+![Consola](img/16.png)
 
 Podemos ejecutar python. Con él podemos darnos acceso a la consola de root. Creamos un archivo con el siguiente contenido o lo ponemos en el interprete de python:
 
@@ -170,8 +170,8 @@ import pty;
 pty.spawn("/bin/bash")
 ```
 
-![Consola](17.png)
+![Consola](img/17.png)
 
 Con esto podemos acceder a la flag:
 
-![Consola](18.png)
+![Consola](img/18.png)
