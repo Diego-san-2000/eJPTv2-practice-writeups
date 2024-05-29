@@ -76,6 +76,8 @@ A través del navegador se puede acceder a la página web:
 
 Aunque no proporciona información.
 
+## Segundo paso: Recopilar información a través de Samba
+
 Intentaremos acceder a través de Samba, para ello podemos usar la herramienta enum4linux
 
 ```bash
@@ -108,6 +110,8 @@ Ahora sabemos que hay un usuario helios y la indicación de no usar tres contras
 - qwerty
 - baseball
 
+## Tercer paso: Acceder con un usuario a través de Samba
+
 Probamos a entrar al directorio de helios con las contraseñas:
 
 ```bash
@@ -126,6 +130,8 @@ Lo único interesante es el punto 3 del archivo todo.txt. Es un subdirectorio de
 
 ![Consola](img/11.png)
 
+## Cuarto paso: Excaneo de WordPress
+
 Es una página web WordPress, por lo que la analizamos con WPScan:
 
 ```bash
@@ -143,6 +149,8 @@ Con el objetivo de querer tomar el control del servidor web, hay que encontrar a
 ![Consola](img/13.png)
 ![Consola](img/14.png)
 
+## Quinto paso: Local File Inclusion
+
 Encontramos dos, de dos plugins distintos. Después de explorar en exploit-db el proof of concept, vemos que su uso es similar:
 
 - http://<host>/wp-content/plugins/mail-masta/inc/campaign/count_of_send.php?pl=/etc/passwd
@@ -154,7 +162,9 @@ Empleando cualquiera de los enlaces superiores, se puede acceder al archivo /etc
 
 Como no se puede acceder con esta vulnerabilidad al archivo /etc/shadow, no es factible un ataque por fuerza bruta con john the ripper.
 
-Aun así, se puede escalar un "Local File Inclusion" a un "Remote Code Execution". Para ello, buscamos un archivo al que hacerle "SMTP log poisoning". Este archivo se encontrará en /var/mail/helios. Para poder modificar su contenido, nos conectaremos al puerto 25 de la máquina víctima.
+## Sexto paso: Remote Code Execution a través de Local File Inclusion y SMTP Log poisoning
+
+Aun así, se puede escalar un "Local File Inclusion" a un "Remote Code Execution". La máquina tenía habilitado el puerto 25, por lo que si se puede acceder al archivo de log de SMTP es posible realizar un "SMTP Log poisoning. El archivo de log se encuentra en /var/mail/helios. Para poder envenenar su contenido, nos conectaremos al puerto 25 de la máquina víctima.
 
 ```bash
 telnet 192.168.226.131 25
@@ -168,7 +178,9 @@ telnet 192.168.226.131 25
 
 ![Consola](img/17.png)
 
-Y entramos en [RevShells](https://www.revshells.com/) para crear nuestra reverse shell. En este caso a mi me funcionó la siguiente configuración:
+## Séptimo paso: Reverse shell
+
+Entramos en [RevShells](https://www.revshells.com/) para crear nuestra reverse shell. En este caso a mi me funcionó la siguiente configuración:
 
 ![Consola](img/18.png)
 
@@ -180,6 +192,8 @@ Entraremos con el usuario helios, pero no en una tty, por lo que hacemos lo sigu
 4. reset xterm
 
 Ahora, al introducir el comando tty nos devolverá /dev/pts/0
+
+## Octavo paso: Escalado de privilegios
 
 Para el escalado, se puede usar un path hijacking, para ello buscaremos todos los archivos que puede ejecutar un usuario normal con permiosos:
 
