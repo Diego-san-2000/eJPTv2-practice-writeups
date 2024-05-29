@@ -60,12 +60,15 @@ Tendremos ahora toda la información en el archivo escaneo:
 
 Con lo cual, procedemos a clasificarla:
 
-Puerto Servicio Versión
-22/tcp ssh OpenSSH 7.4
-25/tcp smtp
-80/tcp http Apache httpd 2.4.25
-139/tcp netbios-ssn Samba smbd 3.X - 4.X
-445/tcp netbios-ssn Samba smbd 4.5.16
+
+| Puerto   | Servicio     | Versión              |
+|----------|--------------|----------------------|
+| 22/tcp   | ssh          | OpenSSH 7.4          |
+| 25/tcp   | smtp         | -                    |
+| 80/tcp   | http         | Apache httpd 2.4.25  |
+| 139/tcp  | netbios-ssn  | Samba smbd 3.X - 4.X |
+| 445/tcp  | netbios-ssn  | Samba smbd 4.5.16    |
+
 
 A través del navegador se puede acceder a la página web:
 
