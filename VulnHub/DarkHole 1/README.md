@@ -23,7 +23,7 @@ Encuentra tres IPs:
 
 - 192.168.226.2 :Tiene abierto el puerto 53, que se usa para DNS, por lo que se descarta esta máquina.
 - 192.168.226.128: Es la máquina atacante.
-- 192.168.226.129: Es la única máquina que queda, además tiene abiertos los puertos 22 y 80 (ssh y una página web)
+- 192.168.226.129: Es la única máquina que queda, además tiene abiertos los puertos 22 y 80 (SSH y una página web)
 
 ## Segundo paso: Obtener reverse web shell
 Si introducimos en un navegador 192.168.226.129 podremos ver la página
