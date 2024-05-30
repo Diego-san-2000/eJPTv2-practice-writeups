@@ -21,7 +21,7 @@ nmap 192.168.226.0-255
 
 - 192.168.226.2 :Tiene abierto el puerto 53, que se usa para DNS, por lo que se descarta esta máquina.
 - 192.168.226.128: Es la máquina atacante.
-- 192.168.226.130: Es la única máquina que queda, además tiene abiertos los puertos 22 y 80 (ssh y una página web)
+- 192.168.226.130: Es la única máquina que queda, además tiene abiertos los puertos 22 y 80 (SSH y una página web)
 
 Realizamos u n escaneo más profundo con:
 
@@ -39,7 +39,7 @@ Accedemos a su página web y vemos que en este caso no tiene disponible una pest
 
 ![Consola](img/4.png)
 
-Sin ambargo, este panel no es vulnerable a SQl injection.
+Sin embargo, este panel no es vulnerable a SQl injection.
 
 Esta página tiene un directorio .git. Nos lo descargamos con wget para ver los cambios y su código.
 
