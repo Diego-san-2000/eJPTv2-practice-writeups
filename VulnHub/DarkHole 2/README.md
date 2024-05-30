@@ -80,7 +80,7 @@ Interceptamos la carga del usuario 1 y la enviamos al repetidor:
 
 ![Repeater de BurpSuite](img/8.png)
 
-Al modificar los campos del submit no funcionará, pero se puede modificar la petición GEt para introducir SQL tras el id.
+Al modificar los campos del submit no funcionará, pero se puede modificar la petición GET para introducir SQL tras el id.
 Gracias a ello, ahora sabemos que la tabla que está consultando la base de datos tiene 6 columnas:
 
 ![Repeater de BurpSuite](img/9.png)
@@ -101,10 +101,10 @@ La columna id no nos interesa, tenemos que extraer los datos de user y pass.
 
 Hay que tener especial cuidado con las comillas, en el último caso el nombre de la tabla no lleva comillas, pero en el resto sí. Esto depende si va detrás de un from o de un = (%3d encodeado a URL).
 
-Ya tenemos entonces el usuario y la contraseña para conectarnos por ssh: jehad y fool.
+Ya tenemos entonces el usuario y la contraseña para conectarnos por SSH: jehad y fool.
 
-## Cuarto paso: Escalar privilegios con ssh
-Nos conectamos por ssh a través del terminal con el siguiente comando:
+## Cuarto paso: Escalar privilegios con SSH
+Nos conectamos por SSH a través del terminal con el siguiente comando:
 
 ```bash
 ssh jehad@192.168.226.130
@@ -120,7 +120,7 @@ cat .bash_history | less
 
 Al parecer, hay levantado en el puerto 9999 un servidor web levantado. Este puerto no fue detectado con netcat porque no es accesible desde el exterior.
 
-Podemos hacer un port forwarding desde nuestra consola con ssh:
+Podemos hacer un port forwarding desde nuestra consola con SSH:
 
 ```bash
 ssh jehad@192.168.226.130 -L 9999:localhost:9999
