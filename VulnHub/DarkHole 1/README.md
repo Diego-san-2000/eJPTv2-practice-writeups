@@ -1,6 +1,6 @@
 # VulnHub - DarkHole: 1 Writeup
 
-## Primer paso: Excaneo de puertos
+## Primer paso: Escaneo de puertos
 Anotamos nuestra IP
 
 ```bash
@@ -25,7 +25,7 @@ Encuentra tres IPs:
 - 192.168.226.128: Es la máquina atacante.
 - 192.168.226.129: Es la única máquina que queda, además tiene abiertos los puertos 22 y 80 (ssh y una página web)
 
-## Obtener reverse web shell
+## Segundo paso: Obtener reverse web shell
 Si introducimos en un navegador 192.168.226.129 podremos ver la página
 
 ![Página web](img/3.png)
@@ -112,7 +112,7 @@ Y al comprobar si estamos operando una tty nos devolverá que sí:
 ![Consola](img/15.png)
 
 
-## Escalar privilegios
+## Tercer paso: Escalar privilegios
 Enumeramos los usuarios:
 
 ```bash
