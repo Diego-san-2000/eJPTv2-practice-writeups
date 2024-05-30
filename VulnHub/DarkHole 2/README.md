@@ -1,6 +1,6 @@
 # VulnHub - DarkHole: 2 Writeup
 
-## Primer paso: Excaneo de puertos
+## Primer paso: Escaneo de puertos
 Anotamos nuestra IP
 
 ```bash
